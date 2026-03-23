@@ -13,10 +13,12 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 const prezzo = 0.21;
 
 // facciamo scrivere utente quanti km. gli diciamo tipo number.
-let km = Number(prompt("quanti km deve fare?"));
+//parsefloat perchè possono esserci valori come 1.5 ad esempio
+let km = parseFloat(prompt("quanti km deve fare?"));
 
 // chiediamo età
-let età = Number(prompt("inserire età"));
+// parseint perchè accettiamo solo valori interi
+let età =parseInt(prompt("inserire età"));
 
 // biglietto sarà in base al prezzo e km che si faranno.
 let biglietto = prezzo * km; 
