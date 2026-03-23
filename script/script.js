@@ -24,11 +24,11 @@ let biglietto = prezzo * km;
 // applicare sconto del 20% o 40% a seconda dell'età.
 
 if (età < 18) {
-    biglietto = (prezzo * km) * 0.8;
+    biglietto = biglietto * 0.8;
     console.log("sconto per minore applicato");
     
 } else if (età >= 65) { 
-    biglietto = (prezzo * km) * 0.6;
+    biglietto = biglietto * 0.6;
     console.log("sconto over 65 applicato");
     
 } else {
