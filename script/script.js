@@ -18,28 +18,52 @@ let km = parseFloat(prompt("quanti km deve fare?"));
 
 // chiediamo età
 // parseint perchè accettiamo solo valori interi
-let età =parseInt(prompt("inserire età"));
+let età = parseInt(prompt("inserire età"));
 
-// biglietto sarà in base al prezzo e km che si faranno.
-let biglietto = prezzo * km; 
 
-// applicare sconto del 20% o 40% a seconda dell'età.
 
-if (età < 18) {
-    biglietto = biglietto * 0.8;
-    console.log("sconto per minore applicato");
-    
-} else if (età >= 65) { 
-    biglietto = biglietto * 0.6;
-    console.log("sconto over 65 applicato");
-    
+//integrità dei dati e coerenza dei dati.
+if (isNaN(età)) {
+    console.error("non hai inserito numero");
+
 } else {
-    console.log("nessuno sconto applicato");
-    
+
+    if (età < 0) {
+        console.error('Eta\' non corretta');
+
+    } else {    
+
+        if (km <= 0) {
+            console.error('Km non corretti');
+
+        } else {
+
+            console.log("numero inserito correttamente");
+            // biglietto sarà in base al prezzo e km che si faranno.
+            let biglietto = prezzo * km;
+
+            // applicare sconto del 20% o 40% a seconda dell'età.
+
+            if (età < 18) {
+                biglietto = biglietto * 0.8;
+                console.log("sconto per minore applicato");
+
+            } else if (età >= 65) {
+                biglietto = biglietto * 0.6;
+                console.log("sconto over 65 applicato");
+
+            } else {
+                console.log("nessuno sconto applicato");
+
+            }
+
+            // tofixed per dare numeri decimali dopo la virgola in questo caso 2.
+            let prezzo_finale = biglietto.toFixed(2);
+
+            // option + e simbolo euro
+            console.log("Il prezzo del tuo biglietto è: " + prezzo_finale + " €");
+        }
+    }
+
 }
 
-// tofixed per dare numeri decimali dopo la virgola in questo caso 2.
-let prezzo_finale = biglietto.toFixed(2);
-
-// option + e simbolo euro
-console.log("Il prezzo del tuo biglietto è: " + prezzo_finale + " €");
